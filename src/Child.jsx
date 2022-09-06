@@ -6,9 +6,7 @@ const Child = ({ childCount, incrementChildCount }) => {
     <>
       <div>
         <p>Child State: {childCount}</p>
-        <button onClick={() => incrementChildCount(childCount + 1)}>
-          Increment Child
-        </button>
+        <button onClick={incrementChildCount}>Increment Child</button>
       </div>
     </>
   );

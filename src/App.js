@@ -8,16 +8,16 @@ function App() {
   const [childCount, setChildCount] = useState(0);
 
   // using useCallback
-  const memoIncChild = useCallback((inc) => {
-    incrementChildCount(inc);
-  }, []);
+  const memoIncChild = useCallback(() => {
+    incrementChildCount(childCount + 1);
+  }, [childCount]);
 
   const incrementCount = () => {
     setCount(count + 1);
   };
 
   const incrementChildCount = (inc) => {
-    setChildCount(inc);
+    setChildCount(childCount + 1);
   };
 
   console.count("Parent render");
@@ -30,9 +30,7 @@ function App() {
 
         <Child childCount={childCount} incrementChildCount={memoIncChild} />
         <br />
-        <button onClick={() => incrementChildCount(childCount + 1)}>
-          Child Inc Parent
-        </button>
+        <button onClick={incrementChildCount}>Child Inc Parent</button>
       </header>
     </div>
   );
