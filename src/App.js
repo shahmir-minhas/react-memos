@@ -39,3 +39,7 @@ function App() {
 }
 
 export default App;
+
+// useCallback is used to memorize the fun and to satisfy React.memo() condition for prop changing
+// now when parent inc the fun and childCount doesnot change hence child will not rerender
+// but when child is inc it will rerender child and parent
